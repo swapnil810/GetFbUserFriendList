@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         generatekeyhash();
-        generatekeyhash();
         FacebookSdk.sdkInitialize(MainActivity.this);
         initView();
         fbView();
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 if (AccessToken.getCurrentAccessToken() != null) {
                     getUserProfile(AccessToken.getCurrentAccessToken());
                 }
-
             }
 
             @Override
@@ -92,10 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Log.e("FacebookException", "FacebookException" + error);
-
             }
         });
-
     }
 
     private void getUserProfile(AccessToken currentAccessToken) {
@@ -126,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                                                     userFriendFbName = jsonObject1.optString("name");
                                                     url = "https://graph.facebook.com/" + userFriendFbNameFbId + "/picture?type=large";
 
-
                                                     try {
                                                         if (!"".equals("")) {
                                                             RequestOptions options = new RequestOptions()
@@ -143,13 +138,8 @@ public class MainActivity extends AppCompatActivity {
                                                         e.printStackTrace();
                                                     }
 
-
-
                                                     /*after perfrom operation log out fb code*/
-
                                                     LoginManager.getInstance().logOut();
-
-
                                                 }
                                             }
                                         });
@@ -168,12 +158,10 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
-
         Bundle parameters = new Bundle();
         parameters.putString("fields", "first_name,last_name,email,id,friends");
         request.setParameters(parameters);
         request.executeAsync();
-
     }
 
     /**
@@ -200,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * make live hash key for ubantu
-     * keytool -exportcert -alias canopusE -keystore path.jks | openssl sha1 -binary | openssl base64
+     * keytool -exportcert -alias swapnil E -keystore path.jks | openssl sha1 -binary | openssl base64
      */
 
 }
